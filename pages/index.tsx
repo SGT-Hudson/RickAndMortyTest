@@ -1,16 +1,38 @@
-import { ReactElement } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import { getCharacters } from 'rickmortyapi';
 import { GetServerSideProps } from 'next';
 import { Info, Character } from '../Types';
 import CharacterCard from '../components/CharacterCard';
+import CharacterModal from '../components/CharacterModal';
 
 export default function Home({
   characters,
 }: {
   characters: Info<Character[]>;
 }): ReactElement {
+  console.log(characters);
+  const [characterList, setCharacterList] =
+    useState<Info<Character[]>>(characters);
+  const [page, setPage] = useState(1);
+  const [selectedCharacter, setSelectedCharacter] = useState({} as Character);
+  const [showModal, setShowModal] = useState(false);
+
+  let maxPage = 0;
+  if (characterList.info) {
+    maxPage = characterList.info.pages;
+  }
+
+  const getNewPage = async (page: number) => {
+    const newPage = await getCharacters({ page });
+    setCharacterList(newPage.data);
+  };
+
+  useEffect(() => {
+    getNewPage(page);
+  }, [page]);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -23,17 +45,49 @@ export default function Home({
       </Head>
 
       <header>
-        <h1>Rickedex</h1>
+        <h1 className={styles.title}>Rickedex</h1>
       </header>
-      <main className={styles.main}>
-        <div className={styles.grid}>
-          {characters.results &&
-            characters.results.map((value) => (
-              <CharacterCard key={value.id} characterInfo={value} />
-            ))}
-        </div>
-      </main>
+      <nav className={styles.nav}>
+        <button
+          onClick={() => {
+            if (page > 1) setPage(page - 1);
+          }}
+        >
+          Previous
+        </button>
+        <h2>
+          Page {page}/{maxPage}
+        </h2>
+        <button
+          onClick={() => {
+            if (characterList.info && page < characterList.info?.pages)
+              setPage(page + 1);
+          }}
+        >
+          Next
+        </button>
+      </nav>
 
+      <main className={styles.main}>
+        <section className={styles.grid}>
+          {characterList.results &&
+            characterList.results.map((value) => (
+              <CharacterCard
+                key={value.id}
+                characterInfo={value}
+                setSelectedCharacter={() => setSelectedCharacter(value)}
+                setShowModal={() => setShowModal(true)}
+              />
+            ))}
+        </section>
+        {showModal ? (
+          <CharacterModal
+            characterInfo={selectedCharacter}
+            setSelectedCharacter={() => setSelectedCharacter(selectedCharacter)}
+            setShowModal={() => setShowModal(false)}
+          />
+        ) : null}
+      </main>
       <footer className={styles.footer}>
         <a
           href='https://www.linkedin.com/in/gonzalo-salvador/'

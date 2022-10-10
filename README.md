@@ -1,4 +1,16 @@
-Didn't have time to do this test in the weekend. Did a part in a couple hours. I will finish Monday morning.
+From what I was asked to do:
+
+- getServerSideProps the first render -> Done
+- Gallery and Modal -> Done
+- Click on the character and open the modal -> Done
+- Other characters from the same location in the modal -> Done
+- X (close in this case) button in modal -> Done
+- Click outside the modal to close it -> Done
+- Numeric pagination -> Did pagination, not numeric
+
+Extras:
+
+- Dark mode if device is in dark mode -> Done
 
 ## Getting Started
 
