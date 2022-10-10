@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 import { Dispatch, SetStateAction } from 'react';
 import Link from 'next/link';
 
-const Character = ({
+const CharacterCard = ({
   characterInfo,
   setSelectedCharacter,
   setShowModal,
@@ -37,15 +37,10 @@ const Character = ({
         height='150'
         className={styles.roundImage}
       />
-      {/* <h3>{name.length > 20 ? `${name.substring(0, 20)}...` : name}</h3> */}
       <h3>{name}</h3>
-
-      {/* <p className='text-slate-300  text-[12px]'>
-        {location.length > 25 ? `${location.substring(0, 25)}...` : location}
-      </p> */}
       <p>{location}</p>
     </div>
   );
 };
 
-export default Character;
+export default CharacterCard;

@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css';
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { charactersFromLocation } from '../Utils/getCharactersFromLocation';
 
-const Character = ({
+const CharacterModal = ({
   characterInfo,
   setSelectedCharacter,
   setShowModal,
@@ -68,4 +68,4 @@ const Character = ({
   );
 };
 
-export default Character;
+export default CharacterModal;

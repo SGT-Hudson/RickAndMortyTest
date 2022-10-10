@@ -5,7 +5,6 @@ import { getCharacters } from 'rickmortyapi';
 import { GetServerSideProps } from 'next';
 import { Info, Character } from '../Types';
 import CharacterCard from '../components/CharacterCard';
-import Image from 'next/image';
 import CharacterModal from '../components/CharacterModal';
 
 export default function Home({
@@ -19,6 +18,11 @@ export default function Home({
   const [page, setPage] = useState(1);
   const [selectedCharacter, setSelectedCharacter] = useState({} as Character);
   const [showModal, setShowModal] = useState(false);
+
+  let maxPage = 0;
+  if (characterList.info) {
+    maxPage = characterList.info.pages;
+  }
 
   const getNewPage = async (page: number) => {
     const newPage = await getCharacters({ page });
@@ -45,15 +49,16 @@ export default function Home({
       </header>
       <nav className={styles.nav}>
         <button
-          className={styles.button}
           onClick={() => {
             if (page > 1) setPage(page - 1);
           }}
         >
           Previous
         </button>
+        <h2>
+          Page {page}/{maxPage}
+        </h2>
         <button
-          className={styles.button}
           onClick={() => {
             if (characterList.info && page < characterList.info?.pages)
               setPage(page + 1);

@@ -3,13 +3,20 @@
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
+  padding-bottom: 4rem;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
 }
 
 .modal,
@@ -105,6 +112,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 15rem;
+  min-width: 12rem;
   height: 20rem;
 }
 
@@ -117,9 +125,6 @@
 .card p {
   margin: 0;
   font-size: 0.9rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .roundImage {
