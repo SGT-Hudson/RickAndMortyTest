@@ -1,9 +1,7 @@
-## Stack used:
+## Stack
 - NextJS
 - TypeScript
-
-API used:
-- [https://rickandmortyapi.com](https://rickandmortyapi.com/documentation/)
+- API [https://rickandmortyapi.com](https://rickandmortyapi.com/documentation/)
 
 ### From what I was asked to do:
 
