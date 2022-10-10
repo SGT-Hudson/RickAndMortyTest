@@ -1,3 +1,10 @@
+Stack used:
+- NextJS
+- TypeScript
+
+API used:
+- [https://rickandmortyapi.com](https://rickandmortyapi.com/documentation/)
+
 From what I was asked to do:
 
 - getServerSideProps the first render -> Done
@@ -10,7 +17,7 @@ From what I was asked to do:
 
 Extras:
 
-- Dark mode if device is in dark mode -> Done
+- Dark mode if device is in dark mode
 
 ## Getting Started
 
