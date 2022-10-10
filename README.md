@@ -1,11 +1,11 @@
-Stack used:
+## Stack used:
 - NextJS
 - TypeScript
 
 API used:
 - [https://rickandmortyapi.com](https://rickandmortyapi.com/documentation/)
 
-From what I was asked to do:
+### From what I was asked to do:
 
 - getServerSideProps the first render -> Done
 - Gallery and Modal -> Done
@@ -15,7 +15,7 @@ From what I was asked to do:
 - Click outside the modal to close it -> Done
 - Numeric pagination -> Did pagination, not numeric
 
-Extras:
+### Extras:
 
 - Dark mode if device is in dark mode
 
