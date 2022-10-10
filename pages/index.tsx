@@ -14,19 +14,20 @@ export default function Home({
   characters: Info<Character[]>;
 }): ReactElement {
   console.log(characters);
+  const [characterList, setCharacterList] =
+    useState<Info<Character[]>>(characters);
   const [page, setPage] = useState(1);
   const [selectedCharacter, setSelectedCharacter] = useState({} as Character);
   const [showModal, setShowModal] = useState(false);
 
-  function openModal(character: Character): void {
-    console.log(character);
-    setSelectedCharacter(character);
-    setShowModal(true);
-  }
+  const getNewPage = async (page: number) => {
+    const newPage = await getCharacters({ page });
+    setCharacterList(newPage.data);
+  };
 
-  function closeModal(): void {
-    setShowModal(false);
-  }
+  useEffect(() => {
+    getNewPage(page);
+  }, [page]);
 
   return (
     <div className={styles.container}>
@@ -42,10 +43,30 @@ export default function Home({
       <header>
         <h1 className={styles.title}>Rickedex</h1>
       </header>
+      <nav className={styles.nav}>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (page > 1) setPage(page - 1);
+          }}
+        >
+          Previous
+        </button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            if (characterList.info && page < characterList.info?.pages)
+              setPage(page + 1);
+          }}
+        >
+          Next
+        </button>
+      </nav>
+
       <main className={styles.main}>
         <section className={styles.grid}>
-          {characters.results &&
-            characters.results.map((value) => (
+          {characterList.results &&
+            characterList.results.map((value) => (
               <CharacterCard
                 key={value.id}
                 characterInfo={value}

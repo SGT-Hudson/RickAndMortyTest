@@ -11,7 +11,7 @@ const Character = ({
 }: {
   characterInfo: Character;
   setSelectedCharacter: Dispatch<SetStateAction<Character>>;
-  setShowModal: Dispatch<SetStateAction<boolean>>;
+  setShowModal: Dispatch<SetStateAction<boolean>> | null;
 }) => {
   let location = characterInfo.location.name;
   let name = characterInfo.name;
@@ -19,12 +19,17 @@ const Character = ({
 
   const onClickAction = () => {
     setSelectedCharacter(characterInfo);
-    setShowModal(true);
+    if (setShowModal) setShowModal(true);
     console.log(characterInfo);
   };
 
   return (
-    <div className={styles.card} onClick={() => onClickAction()}>
+    <div
+      className={styles.card}
+      onClick={() => {
+        if (setShowModal) onClickAction();
+      }}
+    >
       <Image
         src={image}
         alt={name}
@@ -32,11 +37,13 @@ const Character = ({
         height='150'
         className={styles.roundImage}
       />
-      <h3>{name.length > 20 ? `${name.substring(0, 20)}...` : name}</h3>
+      {/* <h3>{name.length > 20 ? `${name.substring(0, 20)}...` : name}</h3> */}
+      <h3>{name}</h3>
 
-      <p className='text-slate-300  text-[12px]'>
+      {/* <p className='text-slate-300  text-[12px]'>
         {location.length > 25 ? `${location.substring(0, 25)}...` : location}
-      </p>
+      </p> */}
+      <p>{location}</p>
     </div>
   );
 };

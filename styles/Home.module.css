@@ -29,7 +29,7 @@
 
 .modalContent {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   line-height: 1.4;
@@ -38,7 +38,7 @@
   border: 1px solid #eaeaea;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  padding: 14px 28px;
+  padding: 28px;
   border-radius: 3px;
   max-width: 70%;
   min-width: 30%;
@@ -84,6 +84,12 @@
   max-width: 90%;
 }
 
+.gridModal {
+  display: flex;
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -99,6 +105,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   width: 15rem;
+  height: 20rem;
 }
 
 .card:hover,
