@@ -12,6 +12,45 @@
   align-items: center;
 }
 
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(50, 50, 50, 0.85);
+}
+
+.modalContent {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #999;
+  text-decoration: none;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 70%;
+  min-width: 30%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
 .footer {
   display: flex;
   flex: 1;
@@ -28,32 +67,13 @@
   flex-grow: 1;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
 .title {
   margin: 0;
   line-height: 1.15;
   font-size: 4rem;
-}
-
-.title,
-.description {
+  padding-top: 1em;
+  text-decoration: none;
   text-align: center;
-}
-
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
 }
 
 .grid {
@@ -73,7 +93,7 @@
   margin: 1rem;
   padding: 1rem;
   color: inherit;
-  background: #aaa;
+  background: #999;
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
@@ -84,13 +104,7 @@
 .card:hover,
 .card:focus,
 .card:active {
-  color: #006be6;
-  border-color: #006be6;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+  background-color: #777;
 }
 
 .card p {
@@ -118,11 +132,13 @@
     background: #333;
     color: white;
   }
-  .card:hover,
-  .card:focus,
-  .card:active {
-    color: #489dff;
-    border-color: #489dff;
+  .modalContent {
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
   .footer {
     border-color: #222;
