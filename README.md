@@ -1,3 +1,5 @@
+Didn't have time to do this test in the weekend. Did a part in a couple hours. I will finish Monday morning.
+
 ## Getting Started
 
 First install all the dependencies:
