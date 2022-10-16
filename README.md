@@ -1,21 +1,17 @@
 ## Stack
+
 - NextJS
 - TypeScript
 - API [https://rickandmortyapi.com](https://rickandmortyapi.com/documentation/)
 
-### From what I was asked to do:
+### Features
 
-- getServerSideProps the first render -> Done
-- Gallery and Modal -> Done
-- Click on the character and open the modal -> Done
-- Other characters from the same location in the modal -> Done
-- X (close in this case) button in modal -> Done
-- Click outside the modal to close it -> Done
-- Numeric pagination -> Did pagination, not numeric
-
-### Extras:
-
-- Dark mode if device is in dark mode
+- Used getServerSideProps for the first render.
+- Gallery of characters with pagination to go through all the characters.
+- Click on a character to open a modal with info about the character.
+- Show other characters from the same location in the modal.
+- To close the modal, click on the background or the close button.
+- Automatic Dark mode based on user's dark mode settings in the device.
 
 ## Getting Started
 
