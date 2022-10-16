@@ -15,6 +15,9 @@ export const charactersFromLocation = async (characterInfo: Character) => {
   const characterIDs = responseLocation.data.residents.map((url) =>
     getLastPartOfUrl(url)
   );
-  const responseCharacters = await getCharacter(characterIDs);
+  const filteredCharactersIDs = characterIDs.filter(
+    (id) => id !== characterInfo.id
+  );
+  const responseCharacters = await getCharacter(filteredCharactersIDs);
   return responseCharacters.data;
 };
