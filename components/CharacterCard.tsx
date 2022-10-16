@@ -20,7 +20,6 @@ const CharacterCard = ({
   const onClickAction = () => {
     setSelectedCharacter(characterInfo);
     if (setShowModal) setShowModal(true);
-    console.log(characterInfo);
   };
 
   return (

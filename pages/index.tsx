@@ -12,7 +12,6 @@ export default function Home({
 }: {
   characters: Info<Character[]>;
 }): ReactElement {
-  console.log(characters);
   const [characterList, setCharacterList] =
     useState<Info<Character[]>>(characters);
   const [page, setPage] = useState(1);
@@ -36,7 +35,7 @@ export default function Home({
   return (
     <div className={styles.container}>
       <Head>
-        <title>Rickedex</title>
+        <title>Rickpedia</title>
         <meta
           name='description'
           content='Search for characters of the Rick and Morty universe'
@@ -89,13 +88,24 @@ export default function Home({
         ) : null}
       </main>
       <footer className={styles.footer}>
-        <a
-          href='https://www.linkedin.com/in/gonzalo-salvador/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Created by Gonzalo S. for Tattoox
-        </a>
+        <p>
+          Created by Gonzalo S. -{' '}
+          <a
+            href='https://www.linkedin.com/in/gonzalo-salvador/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            LinkedIn
+          </a>
+          {' - '}
+          <a
+            href='https://github.com/SGT-Hudson/Rickpedia'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Github Repo
+          </a>
+        </p>
       </footer>
     </div>
   );
