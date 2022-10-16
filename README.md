@@ -6,7 +6,7 @@
 
 ### Features
 
-- getServerSideProps for the first render.
+- Used getServerSideProps for the first render.
 - Gallery of characters with pagination to go through all the characters.
 - Click on a character to open a modal with info about the character.
 - Show other characters from the same location in the modal.
