@@ -26,7 +26,7 @@ const CharacterModal = ({
       setCharacterList(characters);
     };
     if (characterInfo.location.url.length > 0) getCharacters();
-  }, []);
+  }, [characterInfo]);
 
   return (
     <div className={styles.modal}>
