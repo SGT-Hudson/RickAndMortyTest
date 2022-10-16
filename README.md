@@ -1,3 +1,6 @@
+## Check it out at [rickpedia.vercel.app](http://rickpedia.vercel.app)
+
+
 ## Stack
 
 - NextJS
