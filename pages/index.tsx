@@ -44,7 +44,7 @@ export default function Home({
       </Head>
 
       <header>
-        <h1 className={styles.title}>Rickedex</h1>
+        <h1 className={styles.title}>Rickpedia</h1>
       </header>
       <nav className={styles.nav}>
         <button
